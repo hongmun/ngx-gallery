@@ -42,7 +42,8 @@ export class NgxGalleryService {
   }
 
   getFileType (fileSource: string): string {
-    const fileExtension = fileSource.split('.').pop().toLowerCase();
+    const afterLastDot = fileSource.split('.').pop()?.toLowerCase();
+    const fileExtension = afterLastDot?.split('?')[0];
     if (fileExtension === 'avi' || fileExtension === 'flv'
       || fileExtension === 'wmv' || fileExtension === 'mov'
       || fileExtension === 'mp4') {
